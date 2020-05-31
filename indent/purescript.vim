@@ -260,7 +260,7 @@ function! GetPurescriptIndent()
 
   let s = match(prevline, '\<case\>\s\+.\+\<of\>\s*$')
   if s >= 0 && index(s:GetSynStack(v:lnum - 1, s), 'purescriptString') == -1
-    return match(prevline, '\<case\>') + g:purescript_indent_case
+    return indent(v:lnum - 1) + g:purescript_indent_case
   endif
 
   if prevline =~ '^\s*\<\data\>\s\+\S\+\s*$'
